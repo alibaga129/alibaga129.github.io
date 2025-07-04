@@ -149,15 +149,16 @@
                 animalImageElement.alt = animalName;
                 animalNameElement.innerText = animalName;
 
-                // Ensure image is loaded before adjusting font size
-                animalImageElement.onload = () => {
+                const afterImageLoad = () => {
                     adjustFontSize();
                     setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
                 };
-                // If image is already loaded (e.g., from cache), call directly
+
+                // Ensure image is loaded before adjusting font size
                 if (animalImageElement.complete) {
-                    adjustFontSize();
-                    setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
+                    afterImageLoad();
+                } else {
+                    animalImageElement.onload = afterImageLoad;
                 }
             }
         }
@@ -183,13 +184,12 @@
             utterance.lang = currentLanguage;
 
             const voices = speechSynthesis.getVoices();
-            console.log(voices); // Log available voices for debugging
             const voice = voices.find(v => v.lang === currentLanguage);
 
             if (voice) {
                 utterance.voice = voice;
             } else {
-                console.warn(`No voice found for language: ${currentLanguage}. Using default.`);
+                // Fallback to default if specific voice not found
             }
 
             speechSynthesis.speak(utterance);
