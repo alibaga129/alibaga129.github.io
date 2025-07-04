@@ -183,8 +183,7 @@
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = currentLanguage;
 
-            const voices = speechSynthesis.getVoices();
-            const voice = voices.find(v => v.lang === currentLanguage);
+            const voice = speechSynthesis.getVoices().find(v => v.lang === currentLanguage);
 
             if (voice) {
                 utterance.voice = voice;
