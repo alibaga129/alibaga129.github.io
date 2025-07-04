@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,7 +91,7 @@
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="ja">日本語</option>
-            <option value="zh-TW">繁體中文</option>
+            <option value="zh-TW" selected>繁體中文</option>
         </select>
     </div>
 
@@ -128,7 +128,7 @@
             { filename: 'tiger.png', name: { en: 'Tiger', es: 'Tigre', ja: 'トラ', 'zh-TW': '老虎' } }
         ];
         let currentIndex = 0;
-        let currentLanguage = 'en';
+        let currentLanguage = 'zh-TW';
 
         function updateLanguage() {
             currentLanguage = document.getElementById('language').value;
