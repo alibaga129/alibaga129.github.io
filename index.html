@@ -182,6 +182,7 @@
             const text = document.getElementById('animalName').innerText;
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = currentLanguage;
+            utterance.rate = 0.5; // Set speech rate to 0.5 (half speed)
 
             const voice = speechSynthesis.getVoices().find(v => v.lang === currentLanguage);
 
