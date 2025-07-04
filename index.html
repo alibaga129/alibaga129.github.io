@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Learning App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .animal-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+        .animal-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .animal-name {
+            font-size: 8em; /* Very big font size */
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+        }
+        .navigation-buttons {
+            margin-top: 20px;
+        }
+        .navigation-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        .navigation-buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="animal-card">
+        <img id="animalImage" src="images/bunny.png" alt="Bunny">
+        <div id="animalName" class="animal-name">Bunny</div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+    </div>
+
+    <script>
+        const images = [
+            { filename: 'bunny.png', name: 'Bunny' },
+            { filename: 'camel.png', name: 'Camel' },
+            { filename: 'cat.png', name: 'Cat' },
+            { filename: 'chicken.png', name: 'Chicken' },
+            { filename: 'cow.png', name: 'Cow' },
+            { filename: 'deer.png', name: 'Deer' },
+            { filename: 'dog.png', name: 'Dog' },
+            { filename: 'dragon.png', name: 'Dragon' },
+            { filename: 'duck.png', name: 'Duck' },
+            { filename: 'fish.png', name: 'Fish' },
+            { filename: 'hippo.png', name: 'Hippo' },
+            { filename: 'horse.png', name: 'Horse' },
+            { filename: 'lion.png', name: 'Lion' },
+            { filename: 'monkey.png', name: 'Monkey' },
+            { filename: 'mouse.png', name: 'Mouse' },
+            { filename: 'penguin.png', name: 'Penguin' },
+            { filename: 'pig.png', name: 'Pig' },
+            { filename: 'snake.png', name: 'Snake' },
+            { filename: 'tiger.png', name: 'Tiger' }
+        ];
+        let currentIndex = 0;
+
+        function updateImage() {
+            if (images.length > 0) {
+                const currentImage = images[currentIndex];
+                document.getElementById('animalImage').src = `images/${currentImage.filename}`;
+                document.getElementById('animalImage').alt = currentImage.name;
+                document.getElementById('animalName').innerText = currentImage.name;
+                setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
+            }
+        }
+
+        function pronounceText() {
+            const text = document.getElementById('animalName').innerText;
+            const utterance = new SpeechSynthesisUtterance(text);
+            speechSynthesis.speak(utterance);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateImage();
+        }
+
+        // Initial load
+        updateImage();
+    </script>
+</body>
+</html>
