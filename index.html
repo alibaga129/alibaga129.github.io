@@ -90,7 +90,7 @@
         <select id="language" onchange="updateLanguage()">
             <option value="en">English</option>
             <option value="es">Español</option>
-            <option value="fr-FR">Français</option>
+            <option value="ja">日本語</option>
             <option value="zh-TW">繁體中文</option>
         </select>
     </div>
@@ -107,25 +107,25 @@
 
     <script>
         const images = [
-            { filename: 'bunny.png', name: { en: 'Bunny', es: 'Conejo', 'fr-FR': 'Lapin', 'zh-TW': '兔子' } },
-            { filename: 'camel.png', name: { en: 'Camel', es: 'Camello', 'fr-FR': 'Chameau', 'zh-TW': '駱駝' } },
-            { filename: 'cat.png', name: { en: 'Cat', es: 'Gato', 'fr-FR': 'Chat', 'zh-TW': '貓' } },
-            { filename: 'chicken.png', name: { en: 'Chicken', es: 'Pollo', 'fr-FR': 'Poulet', 'zh-TW': '雞' } },
-            { filename: 'cow.png', name: { en: 'Cow', es: 'Vaca', 'fr-FR': 'Vache', 'zh-TW': '牛' } },
-            { filename: 'deer.png', name: { en: 'Deer', es: 'Ciervo', 'fr-FR': 'Cerf', 'zh-TW': '鹿' } },
-            { filename: 'dog.png', name: { en: 'Dog', es: 'Perro', 'fr-FR': 'Chien', 'zh-TW': '狗' } },
-            { filename: 'dragon.png', name: { en: 'Dragon', es: 'Dragón', 'fr-FR': 'Dragon', 'zh-TW': '龍' } },
-            { filename: 'duck.png', name: { en: 'Duck', es: 'Pato', 'fr-FR': 'Canard', 'zh-TW': '鴨' } },
-            { filename: 'fish.png', name: { en: 'Fish', es: 'Pez', 'fr-FR': 'Poisson', 'zh-TW': '魚' } },
-            { filename: 'hippo.png', name: { en: 'Hippo', es: 'Hipopótamo', 'fr-FR': 'Hippopotame', 'zh-TW': '河馬' } },
-            { filename: 'horse.png', name: { en: 'Horse', es: 'Caballo', 'fr-FR': 'Cheval', 'zh-TW': '馬' } },
-            { filename: 'lion.png', name: { en: 'Lion', es: 'León', 'fr-FR': 'Lion', 'zh-TW': '獅子' } },
-            { filename: 'monkey.png', name: { en: 'Monkey', es: 'Mono', 'fr-FR': 'Singe', 'zh-TW': '猴子' } },
-            { filename: 'mouse.png', name: { en: 'Mouse', es: 'Ratón', 'fr-FR': 'Souris', 'zh-TW': '老鼠' } },
-            { filename: 'penguin.png', name: { en: 'Penguin', es: 'Pingüino', 'fr-FR': 'Pingouin', 'zh-TW': '企鵝' } },
-            { filename: 'pig.png', name: { en: 'Pig', es: 'Cerdo', 'fr-FR': 'Cochon', 'zh-TW': '豬' } },
-            { filename: 'snake.png', name: { en: 'Snake', es: 'Serpiente', 'fr-FR': 'Serpent', 'zh-TW': '蛇' } },
-            { filename: 'tiger.png', name: { en: 'Tiger', es: 'Tigre', 'fr-FR': 'Tigre', 'zh-TW': '老虎' } }
+            { filename: 'bunny.png', name: { en: 'Bunny', es: 'Conejo', ja: 'ウサギ', 'zh-TW': '兔子' } },
+            { filename: 'camel.png', name: { en: 'Camel', es: 'Camello', ja: 'ラクダ', 'zh-TW': '駱駝' } },
+            { filename: 'cat.png', name: { en: 'Cat', es: 'Gato', ja: '猫', 'zh-TW': '貓' } },
+            { filename: 'chicken.png', name: { en: 'Chicken', es: 'Pollo', ja: 'ニワトリ', 'zh-TW': '雞' } },
+            { filename: 'cow.png', name: { en: 'Cow', es: 'Vaca', ja: '牛', 'zh-TW': '牛' } },
+            { filename: 'deer.png', name: { en: 'Deer', es: 'Ciervo', ja: '鹿', 'zh-TW': '鹿' } },
+            { filename: 'dog.png', name: { en: 'Dog', es: 'Perro', ja: '犬', 'zh-TW': '狗' } },
+            { filename: 'dragon.png', name: { en: 'Dragon', es: 'Dragón', ja: 'ドラゴン', 'zh-TW': '龍' } },
+            { filename: 'duck.png', name: { en: 'Duck', es: 'Pato', ja: 'アヒル', 'zh-TW': '鴨' } },
+            { filename: 'fish.png', name: { en: 'Fish', es: 'Pez', ja: '魚', 'zh-TW': '魚' } },
+            { filename: 'hippo.png', name: { en: 'Hippo', es: 'Hipopótamo', ja: 'カバ', 'zh-TW': '河馬' } },
+            { filename: 'horse.png', name: { en: 'Horse', es: 'Caballo', ja: '馬', 'zh-TW': '馬' } },
+            { filename: 'lion.png', name: { en: 'Lion', es: 'León', ja: 'ライオン', 'zh-TW': '獅子' } },
+            { filename: 'monkey.png', name: { en: 'Monkey', es: 'Mono', ja: 'サル', 'zh-TW': '猴子' } },
+            { filename: 'mouse.png', name: { en: 'Mouse', es: 'Ratón', ja: 'ネズミ', 'zh-TW': '老鼠' } },
+            { filename: 'penguin.png', name: { en: 'Penguin', es: 'Pingüino', ja: 'ペンギン', 'zh-TW': '企鵝' } },
+            { filename: 'pig.png', name: { en: 'Pig', es: 'Cerdo', ja: '豚', 'zh-TW': '豬' } },
+            { filename: 'snake.png', name: { en: 'Snake', es: 'Serpiente', ja: 'ヘビ', 'zh-TW': '蛇' } },
+            { filename: 'tiger.png', name: { en: 'Tiger', es: 'Tigre', ja: 'トラ', 'zh-TW': '老虎' } }
         ];
         let currentIndex = 0;
         let currentLanguage = 'en';
