@@ -32,10 +32,12 @@
             margin-bottom: 20px;
         }
         .animal-name {
-            font-size: 8em; /* Very big font size */
             font-weight: bold;
             color: #333;
             text-transform: uppercase;
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Hide overflow */
+            text-overflow: ellipsis; /* Add ellipsis for overflow */
         }
         .navigation-buttons {
             margin-top: 20px;
@@ -55,6 +57,7 @@
             background-color: #0056b3;
         }
         .language-selector {
+            margin-top: 35px;
             margin-bottom: 20px;
             position: relative;
         }
@@ -139,10 +142,38 @@
             if (images.length > 0) {
                 const currentImage = images[currentIndex];
                 const animalName = currentImage.name[currentLanguage];
-                document.getElementById('animalImage').src = `images/${currentImage.filename}`;
-                document.getElementById('animalImage').alt = animalName;
-                document.getElementById('animalName').innerText = animalName;
-                setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
+                const animalNameElement = document.getElementById('animalName');
+                const animalImageElement = document.getElementById('animalImage');
+
+                animalImageElement.src = `images/${currentImage.filename}`;
+                animalImageElement.alt = animalName;
+                animalNameElement.innerText = animalName;
+
+                // Ensure image is loaded before adjusting font size
+                animalImageElement.onload = () => {
+                    adjustFontSize();
+                    setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
+                };
+                // If image is already loaded (e.g., from cache), call directly
+                if (animalImageElement.complete) {
+                    adjustFontSize();
+                    setTimeout(pronounceText, 500); // Auto-trigger pronunciation after 0.5 seconds
+                }
+            }
+        }
+
+        function adjustFontSize() {
+            const animalNameElement = document.getElementById('animalName');
+            const animalCard = document.querySelector('.animal-card');
+            const maxTextWidth = animalCard.offsetWidth - (2 * 20); // card width - (2 * padding)
+
+            let fontSize = 8; // Start with a reasonable large font size in em
+            animalNameElement.style.fontSize = `${fontSize}em`;
+
+            // Decrease font size until it fits or reaches a minimum
+            while (animalNameElement.scrollWidth > maxTextWidth && fontSize > 1) {
+                fontSize -= 0.1;
+                animalNameElement.style.fontSize = `${fontSize}em`;
             }
         }
 
@@ -176,6 +207,9 @@
 
         // Initial load
         updateImage();
+
+        // Adjust font size on window resize
+        window.addEventListener('resize', adjustFontSize);
     </script>
 </body>
 </html>
