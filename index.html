@@ -90,7 +90,7 @@
         <select id="language" onchange="updateLanguage()">
             <option value="en">English</option>
             <option value="es">Español</option>
-            <option value="fr">Français</option>
+            <option value="fr-FR">Français</option>
             <option value="zh-TW">繁體中文</option>
         </select>
     </div>
@@ -107,25 +107,25 @@
 
     <script>
         const images = [
-            { filename: 'bunny.png', name: { en: 'Bunny', es: 'Conejo', fr: 'Lapin', 'zh-TW': '兔子' } },
-            { filename: 'camel.png', name: { en: 'Camel', es: 'Camello', fr: 'Chameau', 'zh-TW': '駱駝' } },
-            { filename: 'cat.png', name: { en: 'Cat', es: 'Gato', fr: 'Chat', 'zh-TW': '貓' } },
-            { filename: 'chicken.png', name: { en: 'Chicken', es: 'Pollo', fr: 'Poulet', 'zh-TW': '雞' } },
-            { filename: 'cow.png', name: { en: 'Cow', es: 'Vaca', fr: 'Vache', 'zh-TW': '牛' } },
-            { filename: 'deer.png', name: { en: 'Deer', es: 'Ciervo', fr: 'Cerf', 'zh-TW': '鹿' } },
-            { filename: 'dog.png', name: { en: 'Dog', es: 'Perro', fr: 'Chien', 'zh-TW': '狗' } },
-            { filename: 'dragon.png', name: { en: 'Dragon', es: 'Dragón', fr: 'Dragon', 'zh-TW': '龍' } },
-            { filename: 'duck.png', name: { en: 'Duck', es: 'Pato', fr: 'Canard', 'zh-TW': '鴨' } },
-            { filename: 'fish.png', name: { en: 'Fish', es: 'Pez', fr: 'Poisson', 'zh-TW': '魚' } },
-            { filename: 'hippo.png', name: { en: 'Hippo', es: 'Hipopótamo', fr: 'Hippopotame', 'zh-TW': '河馬' } },
-            { filename: 'horse.png', name: { en: 'Horse', es: 'Caballo', fr: 'Cheval', 'zh-TW': '馬' } },
-            { filename: 'lion.png', name: { en: 'Lion', es: 'León', fr: 'Lion', 'zh-TW': '獅子' } },
-            { filename: 'monkey.png', name: { en: 'Monkey', es: 'Mono', fr: 'Singe', 'zh-TW': '猴子' } },
-            { filename: 'mouse.png', name: { en: 'Mouse', es: 'Ratón', fr: 'Souris', 'zh-TW': '老鼠' } },
-            { filename: 'penguin.png', name: { en: 'Penguin', es: 'Pingüino', fr: 'Pingouin', 'zh-TW': '企鵝' } },
-            { filename: 'pig.png', name: { en: 'Pig', es: 'Cerdo', fr: 'Cochon', 'zh-TW': '豬' } },
-            { filename: 'snake.png', name: { en: 'Snake', es: 'Serpiente', fr: 'Serpent', 'zh-TW': '蛇' } },
-            { filename: 'tiger.png', name: { en: 'Tiger', es: 'Tigre', fr: 'Tigre', 'zh-TW': '老虎' } }
+            { filename: 'bunny.png', name: { en: 'Bunny', es: 'Conejo', 'fr-FR': 'Lapin', 'zh-TW': '兔子' } },
+            { filename: 'camel.png', name: { en: 'Camel', es: 'Camello', 'fr-FR': 'Chameau', 'zh-TW': '駱駝' } },
+            { filename: 'cat.png', name: { en: 'Cat', es: 'Gato', 'fr-FR': 'Chat', 'zh-TW': '貓' } },
+            { filename: 'chicken.png', name: { en: 'Chicken', es: 'Pollo', 'fr-FR': 'Poulet', 'zh-TW': '雞' } },
+            { filename: 'cow.png', name: { en: 'Cow', es: 'Vaca', 'fr-FR': 'Vache', 'zh-TW': '牛' } },
+            { filename: 'deer.png', name: { en: 'Deer', es: 'Ciervo', 'fr-FR': 'Cerf', 'zh-TW': '鹿' } },
+            { filename: 'dog.png', name: { en: 'Dog', es: 'Perro', 'fr-FR': 'Chien', 'zh-TW': '狗' } },
+            { filename: 'dragon.png', name: { en: 'Dragon', es: 'Dragón', 'fr-FR': 'Dragon', 'zh-TW': '龍' } },
+            { filename: 'duck.png', name: { en: 'Duck', es: 'Pato', 'fr-FR': 'Canard', 'zh-TW': '鴨' } },
+            { filename: 'fish.png', name: { en: 'Fish', es: 'Pez', 'fr-FR': 'Poisson', 'zh-TW': '魚' } },
+            { filename: 'hippo.png', name: { en: 'Hippo', es: 'Hipopótamo', 'fr-FR': 'Hippopotame', 'zh-TW': '河馬' } },
+            { filename: 'horse.png', name: { en: 'Horse', es: 'Caballo', 'fr-FR': 'Cheval', 'zh-TW': '馬' } },
+            { filename: 'lion.png', name: { en: 'Lion', es: 'León', 'fr-FR': 'Lion', 'zh-TW': '獅子' } },
+            { filename: 'monkey.png', name: { en: 'Monkey', es: 'Mono', 'fr-FR': 'Singe', 'zh-TW': '猴子' } },
+            { filename: 'mouse.png', name: { en: 'Mouse', es: 'Ratón', 'fr-FR': 'Souris', 'zh-TW': '老鼠' } },
+            { filename: 'penguin.png', name: { en: 'Penguin', es: 'Pingüino', 'fr-FR': 'Pingouin', 'zh-TW': '企鵝' } },
+            { filename: 'pig.png', name: { en: 'Pig', es: 'Cerdo', 'fr-FR': 'Cochon', 'zh-TW': '豬' } },
+            { filename: 'snake.png', name: { en: 'Snake', es: 'Serpiente', 'fr-FR': 'Serpent', 'zh-TW': '蛇' } },
+            { filename: 'tiger.png', name: { en: 'Tiger', es: 'Tigre', 'fr-FR': 'Tigre', 'zh-TW': '老虎' } }
         ];
         let currentIndex = 0;
         let currentLanguage = 'en';
@@ -150,6 +150,17 @@
             const text = document.getElementById('animalName').innerText;
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = currentLanguage;
+
+            const voices = speechSynthesis.getVoices();
+            console.log(voices); // Log available voices for debugging
+            const voice = voices.find(v => v.lang === currentLanguage);
+
+            if (voice) {
+                utterance.voice = voice;
+            } else {
+                console.warn(`No voice found for language: ${currentLanguage}. Using default.`);
+            }
+
             speechSynthesis.speak(utterance);
         }
 
